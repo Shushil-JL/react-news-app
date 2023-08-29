@@ -1,5 +1,3 @@
-import './App.css';
-
 import React, { Component } from 'react'
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
@@ -7,8 +5,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import NotFound from './components/NotFound/NotFound';
 
 export default class App extends Component {
-  pageSize = 9
+  api_key = process.env.API_KEY
+
+  pageSize = 8
   render() {
+    console.log(this.api_key)
     return (
       <div>
         <Router>
@@ -20,13 +21,10 @@ export default class App extends Component {
             <Route exact path="/health" element={<News key='health' category="health" country="in" pageSize={this.pageSize} />} />
             <Route exact path="/science" element={<News key='science' category="science" country="in" pageSize={this.pageSize} />} />
             <Route exact path="/sports" element={<News key='sports' category="sports" country="in" pageSize={this.pageSize} />} />
-            <Route exact path="/technology" element={<News key='tech' category="technology" country="in" pageSize={this.pageSize} />} />
-            <Route exact path="/*" element={<NotFound />} />
-
+            <Route exact path="/technology" element={<News key='technology' category="technology" country="in" pageSize={this.pageSize} />} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </Router>
-
-
       </div>
     )
   }
