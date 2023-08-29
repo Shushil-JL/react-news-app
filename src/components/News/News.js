@@ -34,8 +34,8 @@ export class News extends Component {
     }
     async updateNews() {
         try {
-            console.log(process.env.API_KEY)
-            let url = `https://newsapi.org/v2/top-headlines?country=us&page=${this.page}&pageSize=${this.props.pageSize}&category=${this.props.category}&apiKey=53a40310785242acb252f9b2a6de64fa`
+            console.log(process.env.REACT_APP_API_KEY)
+            let url = `https://newsapi.org/v2/top-headlines?country=us&page=${this.page}&pageSize=${this.props.pageSize}&category=${this.props.category}&apiKey=${process.env.REACT_APP_API_KEY}`
             this.setState({
                 loading: true
             })

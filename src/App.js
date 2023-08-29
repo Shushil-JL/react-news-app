@@ -5,11 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import NotFound from './components/NotFound/NotFound';
 
 export default class App extends Component {
-  api_key = process.env.API_KEY
-
   pageSize = 8
   render() {
-    console.log(this.api_key)
     return (
       <div>
         <Router>
